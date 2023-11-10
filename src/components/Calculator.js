@@ -1,9 +1,9 @@
 import { useReducer } from "react";
-
 import { initialState, reducer } from "../reducers/reducer";
 import CalculatorInfo from "./calculator/CalculatorInfo";
 import InputPrice from "./calculator/InputPrice";
 import InvestmentType from "./calculator/InvestmentType";
+import AnnualIncomeAndTax from "./calculator/AnnualIncomeAndTax";
 
 const Calculator = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -44,46 +44,21 @@ const Calculator = () => {
             />
           </div>
           <div>
-            <div className="annual-income">
-              <label>Select Your Annual Income</label>
-              <select
-                onChange={(event) =>
-                  dispatch({
-                    type: "ANNUAL_INCOME",
-                    payload: event.target.value,
-                  })
-                }
-              >
-                <option value="$0_to_$18200">$0 - $18,200</option>
-                <option value="$18200_to_$45000">$18,201 - $45,000</option>
-                <option value="$45001_to_$120000">$45,001 - $120,000</option>
-                <option value="$120001_to_$180000">$120,001- $180,000</option>
-                <option value="$180001">$180,000+</option>
-              </select>
-            </div>
-            <div className="tax-rate">
-              <label>Tax Rate</label>
-              <p>{state.taxRate}</p>
-            </div>
+            <AnnualIncomeAndTax dispatch={dispatch} taxRate={state.taxRate} />
           </div>
-
           {isInvestmentLongTerm && (
             <div>
               <div>
                 <label>Capital gains amount</label>
-                <input
-                  type="number"
-                  value={state.capitalGainsAmount}
-                  placeholder="eg. $ 5,000"
-                />
+                <div className="amount">
+                  {state.capitalGainsAmount || "eg. $5,000"}
+                </div>
               </div>
               <div>
                 <label>Discount for long term gains</label>
-                <input
-                  type="number"
-                  value={state.discountForLongTermGains}
-                  placeholder="Eg. $ 2,500"
-                />
+                <div className="amount">
+                  {state.discountForLongTermGains || "eg. $2,500"}
+                </div>
               </div>
             </div>
           )}
