@@ -1,21 +1,11 @@
-import logo from "./logo.svg";
 import "./App.css";
 import arrow from "./assets/Vector.svg";
 import australia from "./assets/emojione_flag-for-australia.svg";
+import Navbar from "./components/Navbar";
 function App() {
   return (
     <div className="App">
-      <nav className="navbar">
-        <h1>KoinX</h1>
-        <div className="nav-pills">
-          <p>Features</p>
-          <p>Exchanges</p>
-          <p>How it Works?</p>
-          <p>Blog</p>
-          <p>About Us</p>
-          <button>Sign In</button>
-        </div>
-      </nav>
+      <Navbar />
 
       <div className="calculator">
         <h1>Free Crypto Tax Calculator Australia</h1>

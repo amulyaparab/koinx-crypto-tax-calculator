@@ -3,6 +3,7 @@
   background-color: rgb(239 242 245);
   min-height: 100vh;
   padding-bottom: 2rem;
+  font-family: Inter;
 }
 
 .navbar {
@@ -45,6 +46,10 @@
   border-radius: 16px;
   color: #0f1629;
   height: min-content;
+}
+
+.calculator h1 {
+  margin-bottom: 40px;
 }
 
 .calculator-form {
@@ -197,6 +202,7 @@ select {
 
 .calculator .annual-income {
   width: min-content;
+  font-size: 18px;
 }
 
 .tax-rate {
