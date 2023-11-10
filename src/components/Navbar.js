@@ -1,7 +1,8 @@
+import logo from "../assets/images/logo.svg";
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <h1>KoinX</h1>
+      <img src={logo} alt="KoinX" />
       <div className="nav-pills">
         <p>Features</p>
         <p>Exchanges</p>
