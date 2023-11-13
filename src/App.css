@@ -403,3 +403,7 @@ li::marker {
     display: none;
   }
 }
+
+ul {
+  list-style: disc;
+}

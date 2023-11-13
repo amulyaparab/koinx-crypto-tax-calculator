@@ -1,9 +1,9 @@
 import { useReducer } from "react";
-import { initialState, reducer } from "../reducers/reducer";
-import CalculatorInfo from "./calculator/CalculatorInfo";
-import InputPrice from "./calculator/InputPrice";
-import InvestmentType from "./calculator/InvestmentType";
-import AnnualIncomeAndTax from "./calculator/AnnualIncomeAndTax";
+import { initialState, reducer } from "../../reducers/reducer";
+import CalculatorInfo from "./CalculatorInfo";
+import InputPrice from "./InputPrice";
+import InvestmentType from "./InvestmentType";
+import AnnualIncomeAndTax from "./AnnualIncomeAndTax";
 
 const Calculator = () => {
   const [state, dispatch] = useReducer(reducer, initialState);

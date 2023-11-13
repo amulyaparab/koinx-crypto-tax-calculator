@@ -1,6 +1,18 @@
 import { faqsData } from "../database/faqsData";
 
 const FAQs = () => {
+  function isArrayOrNormal(value) {
+    if (Array.isArray(value)) {
+      return value.map((item) => (
+        <li>
+          {isArrayOrNormal(item)}
+          <br />
+        </li>
+      ));
+    }
+    return value;
+  }
+
   return (
     <div className="faqs">
       <h2>Frequently Asked Questions</h2>
@@ -9,15 +21,7 @@ const FAQs = () => {
           <li key={id}>
             <p className="question">{question}</p>
             {Array.isArray(answer) ? (
-              <ul>
-                {answer.map((answer, index) =>
-                  id === 4 && index === 0 ? (
-                    <p key={index}>{answer}</p>
-                  ) : (
-                    <li key={index}>{answer}</li>
-                  )
-                )}
-              </ul>
+              <ul>{isArrayOrNormal(answer)}</ul>
             ) : (
               <p>{answer}</p>
             )}

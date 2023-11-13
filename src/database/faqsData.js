@@ -24,13 +24,17 @@ export const faqsData = [
     id: 4,
     question: "How do I lower my cryptocurrency taxes?",
     answer: [
-      "Here are the top 6 strategies for lowering your cryptocurrency taxes in Australia:",
-      "Hold for over 12 months- Hold your crypto for more than 12 months to qualify for a 50% long-term CGT discount to reduce your tax liability.",
-      "Offset gains with losses- Offset capital gains with capital losses from cryptocurrency, reducing your overall tax burden.",
-      "Claim tax deductions- Explore opportunities to claim significant deductions on your regular income if you're a trader or running a crypto business.",
-      "Use crypto tax tools- Employ crypto tax software like KoinX or seek help from a crypto tax specialist to streamline calculations and ensure compliance.",
-      "Donate to charities- Donate cryptocurrency to registered charities since it’s not a taxable event, and claim deductions on the donated amount.",
-      "Full disclosure- Be transparent and disclose all your crypto transactions to the ATO to avoid penalties for hiding trading activities.",
+      [
+        "Here are the top 6 strategies for lowering your cryptocurrency taxes in Australia:",
+      ],
+      [
+        "Hold for over 12 months- Hold your crypto for more than 12 months to qualify for a 50% long-term CGT discount to reduce your tax liability.",
+        "Offset gains with losses- Offset capital gains with capital losses from cryptocurrency, reducing your overall tax burden.",
+        "Claim tax deductions- Explore opportunities to claim significant deductions on your regular income if you're a trader or running a crypto business.",
+        "Use crypto tax tools- Employ crypto tax software like KoinX or seek help from a crypto tax specialist to streamline calculations and ensure compliance.",
+        "Donate to charities- Donate cryptocurrency to registered charities since it’s not a taxable event, and claim deductions on the donated amount.",
+        "Full disclosure- Be transparent and disclose all your crypto transactions to the ATO to avoid penalties for hiding trading activities.",
+      ],
     ],
   },
   {
@@ -74,15 +78,30 @@ export const faqsData = [
     id: 11,
     question: "How do I use a cryptocurrency tax calculator?",
     answer: [
-      "In order to use a cryptocurrency tax calculator, you need to input information about your cryptocurrency transactions. After you enter your information, the cryptocurrency tax calculator will calculate the gain or loss on every transaction.",
-      "This includes: 1. The financial year you want to calculate your taxes for. 2. The country you want to calculate your taxes for. 3. The purchase price of the coin. 4. The sale price of the coin.",
-      "You will get results that mention the following: 1. The total profit/loss you made 2. The tax you're liable to pay",
+      [
+        "In order to use a cryptocurrency tax calculator, you need to input information about your cryptocurrency transactions. After you enter your information, the cryptocurrency tax calculator will calculate the gain or loss on every transaction.",
+      ],
+      [
+        "This includes:",
+        "1. The financial year you want to calculate your taxes for.",
+        "2. The country you want to calculate your taxes for.",
+        "3. The purchase price of the coin.",
+        "4. The sale price of the coin.",
+      ],
+      [
+        "You will get results that mention the following:",
+        "1. The total profit/loss you made",
+        "2. The tax you're liable to pay",
+      ],
     ],
   },
   {
     id: 12,
     question: "How are cryptocurrencies taxed in Australia?",
-    answer:
-      "To calculate your crypto tax in Australia accurately, you need to consider both income tax and capital gains tax.Income Tax In Australia, when an individual (investor) sells, trades, spends, earns (salary, mining, interest) or gifts cryptocurrency, the net capital gain is taxed at the same rate as their Income Tax. This tax rate is determined based on their total income for the tax year.",
+    answer: [
+      "To calculate your crypto tax in Australia accurately, you need to consider both income tax and capital gains tax.",
+      "Income Tax",
+      "In Australia, when an individual (investor) sells, trades, spends, earns (salary, mining, interest) or gifts cryptocurrency, the net capital gain is taxed at the same rate as their Income Tax. This tax rate is determined based on their total income for the tax year.",
+    ],
   },
 ];
