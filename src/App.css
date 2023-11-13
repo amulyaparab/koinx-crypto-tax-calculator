@@ -5,7 +5,9 @@
   padding-bottom: 2rem;
   font-family: Inter;
 }
-
+* {
+  box-sizing: border-box;
+}
 .navbar {
   display: flex;
   align-items: center;
@@ -22,8 +24,9 @@
 .navbar .nav-pills {
   display: flex;
   align-items: center;
-  width: 50%;
+  width: max-content;
   justify-content: space-evenly;
+  gap: 32px;
 }
 
 .navbar .nav-pills button {
@@ -36,6 +39,7 @@
   padding: 0.5rem 1rem;
   border-radius: 4px;
   background-color: #ffffff;
+  margin-left: 32px;
 }
 
 .calculator {
@@ -66,11 +70,13 @@
   gap: 40px;
   margin-bottom: 28px;
 }
-
+.calculator-form > div > div {
+  width: 335.5px;
+}
 .calculator .financial-yr {
   display: flex;
   gap: 40px;
-  margin-left: 1.5rem;
+  margin-left: 1rem;
 }
 
 .calculator .financial-yr .inline-flex {
@@ -101,10 +107,6 @@ hr {
   justify-content: space-between;
 }
 
-.calculator .calculator-form select {
-  width: 368px;
-}
-
 .section {
   display: flex;
   justify-content: space-between;
@@ -130,11 +132,12 @@ select,
 }
 
 .calculator .results > div {
-  min-width: 350px;
+  min-width: 337px;
   padding: 8px;
   height: 97px;
   border-radius: 8px;
   font-size: 16px;
+  line-height: 1rem;
 }
 
 .capital-gains {
@@ -143,6 +146,7 @@ select,
 
 .capital-gains h2 {
   color: #0fba83;
+  font-size: 24px;
 }
 
 .tax-to-be-paid {
@@ -151,11 +155,13 @@ select,
 
 .tax-to-be-paid h2 {
   color: #0141cf;
+  font-size: 24px;
 }
 
 .investment {
   display: flex;
   flex-direction: column;
+  width: 335.5px;
 }
 
 .investment .options {
@@ -221,4 +227,143 @@ select,
   height: 58px;
   margin-top: 1.9rem;
   line-height: 10px;
+}
+
+.faqs {
+  background-color: #ffffff;
+  text-align: left;
+  width: 880px;
+  box-sizing: border-box;
+  margin: 20px 0 0 56px;
+  padding: 24px;
+  border-radius: 16px;
+  line-height: 25.6px;
+}
+
+.faqs ol {
+  margin-left: -19px;
+}
+.faqs h2 {
+  font-size: 30px;
+}
+.faqs .seperation {
+  border-bottom: 1px rgba(201, 207, 221, 0.6) solid;
+}
+.faqs .question,
+li::marker {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 1000px) {
+  .parent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .calculator {
+    width: 382px;
+    padding: 17px;
+    margin: 19px 10px 48px;
+  }
+  .navbar {
+    height: 60.7px;
+  }
+  .calculator h1 {
+    width: 330px;
+    font-size: 24px;
+  }
+
+  .calculator .inline-flex {
+    flex-direction: column;
+    width: 164px;
+  }
+  .calculator .financial-yr {
+    display: flex;
+    gap: 20px;
+    margin-left: 0;
+  }
+  .calculator .financial-yr .inline-flex {
+    text-align: left;
+    align-items: flex-start;
+  }
+  .calculator .financial-yr .inline-flex .field {
+    width: 164px;
+    margin-left: 0;
+    padding: 16px;
+  }
+  .calculator .financial-yr .inline-flex .field p {
+    margin: 0;
+  }
+  hr {
+    margin: 25px 0;
+  }
+  .calculator-form > div {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .calculator-form {
+    height: max-content;
+  }
+  .calculator .calculator-form input,
+  select,
+  .amount {
+    width: 348px;
+    box-sizing: border-box;
+  }
+  .tax-rate {
+    height: max-content;
+    margin-top: 0rem;
+  }
+
+  .calculator-form label {
+    display: flex;
+  }
+  .calculator .calculator-form {
+    margin: 0;
+    width: 348px;
+  }
+  .capital-gains,
+  .tax-to-be-paid {
+    width: 292px;
+    box-sizing: border-box;
+  }
+  .calculator-form .investment .options {
+    gap: 10px;
+    justify-content: center;
+  }
+  .investment .options > div {
+    font-size: 16px;
+    box-sizing: border-box;
+    height: 48px;
+  }
+  .tax-rate {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .investment .options > div > div {
+    padding: 24px 12px;
+  }
+  .calculator-form > div {
+    width: 348px;
+  }
+  .investment .timeline {
+    justify-content: center;
+    gap: 10px;
+  }
+  .calculator .results > div {
+    width: 292px;
+  }
+  .calculator .calculator-form select {
+    width: 348px;
+  }
+  .faqs {
+    width: 382px;
+    margin: 0px 10px 48px;
+  }
+  .navbar .nav-pills {
+    display: none;
+  }
 }

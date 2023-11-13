@@ -19,7 +19,7 @@ const AnnualIncomeAndTax = ({ dispatch, taxRate }) => {
         </select>
       </div>
       <div className="tax-rate">
-        <label>Tax Rate</label>
+        <label>Tax Rate: </label>
         <p>{taxRate}</p>
       </div>{" "}
     </>

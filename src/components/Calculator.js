@@ -44,7 +44,10 @@ const Calculator = () => {
             />
           </div>
           <div>
-            <AnnualIncomeAndTax dispatch={dispatch} taxRate={state.taxRate} />
+            <AnnualIncomeAndTax
+              dispatch={dispatch}
+              taxRate={state.taxRate || "0%"}
+            />
           </div>
           {isInvestmentLongTerm && (
             <div>
@@ -69,7 +72,7 @@ const Calculator = () => {
             </div>
             <div className="tax-to-be-paid">
               <p>The tax you need to pay*</p>
-              <h2>${state.taxToBePaid || 0}</h2>
+              <h2>${state.taxToBePaid || state.taxToBePaid > 0 || 0}</h2>
             </div>
           </div>
         </div>
