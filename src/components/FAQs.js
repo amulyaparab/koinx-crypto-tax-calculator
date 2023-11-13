@@ -5,13 +5,17 @@ const FAQs = () => {
     <div className="faqs">
       <h2>Frequently Asked Questions</h2>
       <ol>
-        {faqsData.map(({ id, question, answer }, index) => (
+        {faqsData.map(({ id, question, answer }) => (
           <li key={id}>
             <p className="question">{question}</p>
-            {id === 4 ? (
-              <ul className="faq-4-list">
+            {Array.isArray(answer) ? (
+              <ul>
                 {answer.map((answer, index) =>
-                  index === 0 ? <p>{answer}</p> : <li>{answer}</li>
+                  id === 4 && index === 0 ? (
+                    <p key={index}>{answer}</p>
+                  ) : (
+                    <li key={index}>{answer}</li>
+                  )
                 )}
               </ul>
             ) : (

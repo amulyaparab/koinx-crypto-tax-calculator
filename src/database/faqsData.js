@@ -15,8 +15,10 @@ export const faqsData = [
   {
     id: 3,
     question: "Do I have to pay tax on crypto-to-crypto transactions?",
-    answer:
-      "Yes, according to the ATO, when you trade one cryptocurrency for another, like NFTs, stablecoins, or tokens, it's seen as selling one asset to buy another, and any profit you make from this exchange is subject to Capital Gains Tax. To compute taxes for crypto-to-crypto transactions, you must determine the fair market value of your coins in AUD at both the acquisition and disposal times. However, this can be challenging because many exchanges use cryptocurrency as the standard for valuation. Explore KoinX for a streamlined experience in calculating your cryptocurrency taxes. Our historical price engine swiftly delivers the fair market value of your crypto holdings at the time of each transaction, making tax assessment hassle-free.",
+    answer: [
+      "Yes, according to the ATO, when you trade one cryptocurrency for another, like NFTs, stablecoins, or tokens, it's seen as selling one asset to buy another, and any profit you make from this exchange is subject to Capital Gains Tax. To compute taxes for crypto-to-crypto transactions, you must determine the fair market value of your coins in AUD at both the acquisition and disposal times. However, this can be challenging because many exchanges use cryptocurrency as the standard for valuation.",
+      "Explore KoinX for a streamlined experience in calculating your cryptocurrency taxes. Our historical price engine swiftly delivers the fair market value of your crypto holdings at the time of each transaction, making tax assessment hassle-free.",
+    ],
   },
   {
     id: 4,
@@ -71,8 +73,11 @@ export const faqsData = [
   {
     id: 11,
     question: "How do I use a cryptocurrency tax calculator?",
-    answer:
-      "In order to use a cryptocurrency tax calculator, you need to input information about your cryptocurrency transactions. After you enter your information, the cryptocurrency tax calculator will calculate the gain or loss on every transaction. This includes: 1. The financial year you want to calculate your taxes for. 2. The country you want to calculate your taxes for. 3. The purchase price of the coin. 4. The sale price of the coin.  You will get results that mention the following: 1. The total profit/loss you made 2. The tax you’re liable to pay",
+    answer: [
+      "In order to use a cryptocurrency tax calculator, you need to input information about your cryptocurrency transactions. After you enter your information, the cryptocurrency tax calculator will calculate the gain or loss on every transaction.",
+      "This includes: 1. The financial year you want to calculate your taxes for. 2. The country you want to calculate your taxes for. 3. The purchase price of the coin. 4. The sale price of the coin.",
+      "You will get results that mention the following: 1. The total profit/loss you made 2. The tax you're liable to pay",
+    ],
   },
   {
     id: 12,

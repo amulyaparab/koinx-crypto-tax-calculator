@@ -1,15 +1,15 @@
 export const initialState = {
-  purchasePrice: "",
-  salePrice: "",
-  expenses: "",
+  purchasePrice: 0,
+  salePrice: 0,
+  expenses: 0,
   investmentType: "Long Term",
-  annualIncome: "",
-  capitalGainsAmount: "",
+  annualIncome: "$0_to_$18200",
+  capitalGainsAmount: 0,
   discountForLongTermGains: "",
-  netCapitalGains: "",
-  taxRate: "",
+  netCapitalGains: 0,
+  taxRate: 0,
   percentToBeMultiplied: "",
-  taxToBePaid: "",
+  taxToBePaid: 0,
 };
 
 const taxRates = {
@@ -34,56 +34,93 @@ export const reducer = (state = initialState, action) => {
 
   switch (action.type) {
     case "PURCHASE_PRICE":
+      const capitalGainsForPurchase =
+        state.salePrice - action.payload - state.expenses;
+
+      const netCapitalGainsOnPurchase = isDiscountApplicable
+        ? state.salePrice -
+          action.payload -
+          state.expenses -
+          0.5 * capitalGainsForPurchase
+        : capitalGainsForPurchase;
+
       return {
         ...state,
         purchasePrice: action.payload,
-        capitalGainsAmount: state.salePrice - action.payload - state.expenses,
-        discountForLongTermGains:
-          isDiscountApplicable &&
-          0.5 * (state.salePrice - action.payload - state.expenses),
-        netCapitalGains: isDiscountApplicable
-          ? state.salePrice -
-            action.payload -
-            state.expenses -
-            0.5 * (state.salePrice - action.payload - state.expenses)
-          : state.salePrice - action.payload - state.expenses,
+        capitalGainsAmount: capitalGainsForPurchase,
+        discountForLongTermGains: isDiscountApplicable
+          ? 0.5 * capitalGainsForPurchase
+          : "Discount Inapplicable.",
+        netCapitalGains: netCapitalGainsOnPurchase,
+        taxToBePaid:
+          (taxPercentToBeMultiplied[state.annualIncome] *
+            netCapitalGainsOnPurchase) /
+          100,
       };
 
     case "SALE_PRICE":
-      const capitalGains =
+      const capitalGainsForSale =
         action.payload - state.purchasePrice - state.expenses;
+
+      const discountApplicableDuringSale =
+        state.investmentType === "Long Term" && capitalGainsForSale > 0;
+
+      const netCapitalGainsOnSale = discountApplicableDuringSale
+        ? action.payload -
+          state.purchasePrice -
+          state.expenses -
+          0.5 * capitalGainsForSale
+        : capitalGainsForSale;
+
+      console.log(state, isDiscountApplicable);
       return {
         ...state,
         salePrice: action.payload,
-        capitalGainsAmount: capitalGains,
-        discountForLongTermGains: isDiscountApplicable && 0.5 * capitalGains,
-        netCapitalGains: isDiscountApplicable
-          ? capitalGains - 0.5 * capitalGains
-          : capitalGains,
+        capitalGainsAmount: capitalGainsForSale,
+        discountForLongTermGains: discountApplicableDuringSale
+          ? 0.5 * capitalGainsForSale
+          : "Discount Inapplicable.",
+        netCapitalGains: netCapitalGainsOnSale,
+        taxToBePaid:
+          (taxPercentToBeMultiplied[state.annualIncome] *
+            netCapitalGainsOnSale) /
+          100,
       };
 
     case "EXPENSES":
+      const capitalGainsForExpenses =
+        state.salePrice - state.purchasePrice - action.payload;
+
+      const netCapitalGainsOnExpenses = isDiscountApplicable
+        ? state.salePrice -
+          state.purchasePrice -
+          action.payload -
+          0.5 * capitalGainsForExpenses
+        : capitalGainsForExpenses;
+
       return {
         ...state,
         expenses: action.payload,
-        capitalGainsAmount:
-          state.salePrice - state.purchasePrice - action.payload,
-        discountForLongTermGains:
-          isDiscountApplicable &&
-          0.5 * (state.salePrice - state.purchasePrice - action.payload),
-        netCapitalGains: isDiscountApplicable
-          ? state.salePrice -
-            state.purchasePrice -
-            action.payload -
-            0.5 * (state.salePrice - state.purchasePrice - action.payload)
-          : state.salePrice - state.purchasePrice - action.payload,
+        capitalGainsAmount: capitalGainsForExpenses,
+        discountForLongTermGains: isDiscountApplicable
+          ? 0.5 * capitalGainsForExpenses
+          : "Discount Inapplicable.",
+        netCapitalGains: netCapitalGainsOnExpenses,
+        taxToBePaid:
+          (taxPercentToBeMultiplied[state.annualIncome] *
+            netCapitalGainsOnExpenses) /
+          100,
       };
 
     case "LONG_TERM":
       return { ...state, investmentType: "Long Term" };
 
     case "SHORT_TERM":
-      return { ...state, investmentType: "Short Term" };
+      return {
+        ...state,
+        investmentType: "Short Term",
+        netCapitalGains: state.capitalGainsAmount,
+      };
 
     case "ANNUAL_INCOME":
       return {

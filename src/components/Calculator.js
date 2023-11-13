@@ -7,8 +7,8 @@ import AnnualIncomeAndTax from "./calculator/AnnualIncomeAndTax";
 
 const Calculator = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  console.log(state);
   const isInvestmentLongTerm = state.investmentType === "Long Term";
+
   return (
     <div className="calculator">
       <CalculatorInfo />
@@ -53,14 +53,12 @@ const Calculator = () => {
             <div>
               <div>
                 <label>Capital gains amount</label>
-                <div className="amount">
-                  {state.capitalGainsAmount || "eg. $5,000"}
-                </div>
+                <div className="amount">{state.capitalGainsAmount || 0}</div>
               </div>
               <div>
                 <label>Discount for long term gains</label>
                 <div className="amount">
-                  {state.discountForLongTermGains || "eg. $2,500"}
+                  {state.discountForLongTermGains || 0}
                 </div>
               </div>
             </div>
@@ -72,7 +70,9 @@ const Calculator = () => {
             </div>
             <div className="tax-to-be-paid">
               <p>The tax you need to pay*</p>
-              <h2>${state.taxToBePaid || state.taxToBePaid > 0 || 0}</h2>
+              <h2>
+                ${Number(state.taxToBePaid || 0) > 0 ? state.taxToBePaid : 0}
+              </h2>
             </div>
           </div>
         </div>
