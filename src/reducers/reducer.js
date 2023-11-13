@@ -38,10 +38,7 @@ export const reducer = (state = initialState, action) => {
         state.salePrice - action.payload - state.expenses;
 
       const netCapitalGainsOnPurchase = isDiscountApplicable
-        ? state.salePrice -
-          action.payload -
-          state.expenses -
-          0.5 * capitalGainsForPurchase
+        ? capitalGainsForPurchase / 2
         : capitalGainsForPurchase;
 
       return {
@@ -66,13 +63,9 @@ export const reducer = (state = initialState, action) => {
         state.investmentType === "Long Term" && capitalGainsForSale > 0;
 
       const netCapitalGainsOnSale = discountApplicableDuringSale
-        ? action.payload -
-          state.purchasePrice -
-          state.expenses -
-          0.5 * capitalGainsForSale
+        ? capitalGainsForSale / 2
         : capitalGainsForSale;
 
-      console.log(state, isDiscountApplicable);
       return {
         ...state,
         salePrice: action.payload,
@@ -92,10 +85,7 @@ export const reducer = (state = initialState, action) => {
         state.salePrice - state.purchasePrice - action.payload;
 
       const netCapitalGainsOnExpenses = isDiscountApplicable
-        ? state.salePrice -
-          state.purchasePrice -
-          action.payload -
-          0.5 * capitalGainsForExpenses
+        ? capitalGainsForExpenses / 2
         : capitalGainsForExpenses;
 
       return {
